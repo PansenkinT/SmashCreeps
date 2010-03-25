@@ -8,10 +8,11 @@
 #include "Tower.h"
 
 
-Tower::Tower(short* p,short* sellp, short* d,short nup,string n) {
+Tower::Tower(short* p,short* sellp, short* d,short* r,short nup,string n) {
 	price = new short[nup];
 	sellPrice=new short[nup];
 	damage=new short[nup];
+	range=new short[nup];
 	// TODO check wether allocation worked?
 
 
@@ -19,6 +20,7 @@ Tower::Tower(short* p,short* sellp, short* d,short nup,string n) {
 		price[i]=p[i];
 		sellPrice=sellp[i];
 		damage[i]=d[i];
+		range[i]=r[i];
 	}
 	level=0;
 	name=n;
@@ -47,6 +49,10 @@ Tower::~Tower() {
 
 short Tower::getPrice() {
 	return price[level];
+}
+
+short Tower::getRange() {
+	return range[level];
 }
 
 short Tower::getSellPrice() {

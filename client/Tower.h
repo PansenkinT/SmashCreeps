@@ -16,6 +16,7 @@ private:
 	short* price;
 	short* sellPrice;
 	short* damage;
+	short* range;
 	short nUpdates;
 	short level;
 	string name;
@@ -29,6 +30,7 @@ public:
 	short getDamage();
 	short getLevel();
 	short getNUpdates();
+	short getRange();
 	string getName();
 };
 
