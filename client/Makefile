@@ -1,6 +1,6 @@
 CXXFLAGS= -lSDL -lSDL_image -lglut
-SRCS=$(wildcard *.cc)
-OBJECTS=$(subst .cc,.o,$(SRCS))
+SRCS=$(wildcard *.cpp)
+OBJECTS=$(subst .cpp,.o,$(SRCS))
 
 .PHONY: clean
 
