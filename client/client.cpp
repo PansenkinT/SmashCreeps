@@ -5,7 +5,11 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_opengl.h> 
 #include <SDL/SDL_image.h>
-#include "Tower.h"
+
+#include "../common/model/Tower.h"
+#include "model/Blueprint.h"
+#include "view/Drawer.h"
+#include "model/geometrical_objects.h"
 
 using namespace std;
 
@@ -283,6 +287,25 @@ int main(int argc, char ** argv)
     
     //finished creating map
     
+    struct point* points=new struct point[4];
+    struct point p1={0,0};
+    struct point p2={0,10};
+    struct point p3={10,10};
+    struct point p4={10,0};
+
+    points[0]=p1;
+    points[1]=p2;
+    points[2]=p3;
+    points[3]=p4;
+
+
+   Linestrip ls(4,points);
+   Blueprint bp(1,&ls);
+//
+//    Drawer d;
+
+   // d.drawBlueprint(bp,30,30);
+
     //draw creep - mercury
     for (int i = 0; i < 32; i++) {
         for (int j = 0; j < 32; j++) {
@@ -291,13 +314,13 @@ int main(int argc, char ** argv)
             else if (j*i%3==1)
                 draw_mako(20*j, 20*i);
             else if (j*i%3==2)*/
-                draw_splash_tower(20*j, 20*i);
+               // draw_splash_tower(20*j, 20*i);
         }
     }
     
     SDL_GL_SwapBuffers();
 
-    SDL_Delay(5000);
+    SDL_Delay(500);
     
     //delete texture
     glDeleteTextures( 1, &texture );
